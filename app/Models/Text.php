@@ -1,0 +1,8 @@
+<?php
+namespace App\Models;
+use Illuminate\Database\Eloquent\Model;
+class Text extends Model {
+    protected $fillable = ['heading', 'text', 'categorie_id', 'user_id'];
+    public function category() { return $this->belongsTo(Category::class, 'categorie_id'); }
+    public function author() { return $this->belongsTo(User::class, 'user_id'); }
+}

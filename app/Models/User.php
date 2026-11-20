@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class User extends Authenticatable
+{
+    protected $fillable = ['login', 'password', 'role_id'];
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    public function texts()
+    {
+        return $this->hasMany(Text::class);
+    }
+}
